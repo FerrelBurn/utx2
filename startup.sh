@@ -7,6 +7,7 @@ if test -f "$FILE"; then
   exit
   else
     mkdir $FILE
+    useradd -m -p zapataai
     chown -R nvidia:nvidia /opt/zapataai
     apt get install python3-pip
     apt get install docker-compose
