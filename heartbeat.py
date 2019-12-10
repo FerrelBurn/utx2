@@ -21,6 +21,7 @@ def is_running():
 
 # get the jupyter notbook token
 def get_token():
+    print("is running method call: ", is_running())
     if is_running():
         global token
         token = None
