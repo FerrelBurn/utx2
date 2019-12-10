@@ -11,11 +11,14 @@ status = None
 
 
 def is_running():
+    global status
     p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' TX2-UofA-CUDA-GPU-Jupyter")
     print("is running: ", p)
     if p == 'true':
+        status = "On"
         return True
     else:
+        status = "Off"
         return False
 
 
@@ -43,6 +46,7 @@ def get_token():
 # post Jettson data to rest interface
 def post_data():
     try:
+        global status
         print("trying to post data to rest endpoint")
         api_endpoint = "http://208.188.184.42:5000/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
