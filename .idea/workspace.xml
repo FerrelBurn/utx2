@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fb55c59d-c2f3-4c0d-95ba-8e34869a98d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup-containers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup-containers.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/startup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/startup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,6 +76,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="734" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576011693988">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="734" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1050/0.-1080.2560.1050@0.0.2560.1050" timestamp="1576011693988" />
     <state x="934" y="119" key="CommitChangelistDialog2" timestamp="1576011137925">
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
@@ -85,5 +88,9 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="781" y="167" key="SettingsEditor/0.0.2560.1050/0.-1080.2560.1050@0.0.2560.1050" timestamp="1576010290896" />
+    <state x="943" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1576011865695">
+      <screen x="0" y="0" width="2560" height="1050" />
+    </state>
+    <state x="943" y="227" width="672" height="678" key="search.everywhere.popup/0.0.2560.1050/0.-1080.2560.1050@0.0.2560.1050" timestamp="1576011865695" />
   </component>
 </project>
