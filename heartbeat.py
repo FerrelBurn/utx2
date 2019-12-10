@@ -11,7 +11,7 @@ status = None
 
 
 def is_running():
-    p = subprocess("docker inspect -f '{{.State.Running}}' Tx2-UofA-CUDA-GPU-Jupyter")
+    p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' Tx2-UofA-CUDA-GPU-Jupyter")
     print("is running: ", p)
     if p == 'true':
         return True
