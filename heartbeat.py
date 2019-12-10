@@ -7,23 +7,36 @@ import time
 import schedule
 token = None
 ip = "10.10.10.1"
+status = None
+
+
+def is_running():
+    p = subprocess("docker inspect -f '{{.State.Running'}} Tx2-UofA-CUDA-GPU-Jupyter")
+    print("is running: ", p)
+    if p == 'true':
+        return True
+    else:
+        return False
 
 
 # get the jupyter notbook token
 def get_token():
-    global token
-    token = None
-    # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
-    p = subprocess.getoutput('docker exec -it TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
-    raw_token = ''.join(p)
+    if is_running():
+        global token
+        token = None
+        # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
+        p = subprocess.getoutput('docker exec -it TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
+        raw_token = ''.join(p)
 
-    print("raw token: ", raw_token)
+        print("raw token: ", raw_token)
 
-    start = 'token='
-    end = ' ::'
-    token = ((raw_token.split(start))[1].split(end)[0])
+        start = 'token='
+        end = ' ::'
+        token = ((raw_token.split(start))[1].split(end)[0])
 
-    print("Token: ", token)
+        print("Token: ", token)
+    else:
+        token = None
 
 
 # post Jettson data to rest interface
@@ -32,7 +45,7 @@ def post_data():
         print("trying to post data to rest endpoint")
         api_endpoint = "http://208.188.184.42:5000/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
-        data = {'ip': ip, 'jupyterToken': token}
+        data = {'ip': ip, 'jupyterToken': token, 'status': status}
 
         r = requests.post(url=api_endpoint, json=data, timeout=10)
 
