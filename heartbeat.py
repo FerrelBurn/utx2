@@ -34,7 +34,7 @@ def get_token():
         raw_token = ''.join(p)
         if raw_token == "the input device is not a TTY":
             time.sleep(5)
-            print("waiting 5 seconds to see if the docker container is up yet")\
+            print("waiting 5 seconds to see if the docker container is up yet")
             get_token()
         print("raw token: ", raw_token)
 
