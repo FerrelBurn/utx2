@@ -84,7 +84,6 @@ def get_host_name_ip():
         else:
             host_ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
 
-
         ip = host_ip
         print("TX2 IP: ", ip)
     except:
