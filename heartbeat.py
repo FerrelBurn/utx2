@@ -8,8 +8,9 @@ import schedule
 
 token = None
 ip = "10.10.10.1"
-rest_ip = "208.188.184.42"
+rest_ip = "192.168.1.193"
 status = None
+heartbeat_frequency = 20
 
 
 # checks to see if the Jupyter container is running
@@ -46,7 +47,7 @@ def get_token():
 
         print("Token: ", token)
     else:
-        token = None
+        token = "None"
 
 
 # post Jettson data to rest interface
@@ -96,10 +97,19 @@ def get_host_name_ip():
 def update_rest_ip():
     print("update rest IP")
     global rest_ip
-    r = requests.get("http://" + rest_ip + ":5000/endpoint", timeout=10)
-    print("response from update rest IP: ", r.json())
-    rest_ip = r.json().ip
-    print("new REST_API IP: ", rest_ip)
+    global heartbeat_frequency
+    api_url = "http://" + rest_ip + ":5000/endpoint"
+    try:
+        r = requests.get("http://" + rest_ip + ":5000/endpoint", timeout=10)
+        print("response from update rest IP: ", r.json())
+        data = r.json()
+        print("data.ip: ", data['ip'])
+        rest_ip = data['ip']
+        heartbeat_frequency = data['heartbeatFreq']
+        print("new REST_API IP: ", rest_ip)
+        print("new freq: ", heartbeat_frequency)
+    except:
+        print("couldn't get an update for the IP or heartbeat frequency")
 
 
 #     post to rest endpoint on a regular basis
