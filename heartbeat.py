@@ -13,7 +13,7 @@ status = None
 def is_running():
     global status
     p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' TX2-UofA-CUDA-GPU-Jupyter")
-    print("is running: ", p)
+
     if p == 'true':
         status = "On"
         return True
@@ -24,7 +24,7 @@ def is_running():
 
 # get the jupyter notbook token
 def get_token():
-    print("is running method call: ", is_running())
+    print("jupyter container is running method call: ", is_running())
     if is_running():
         global token
         token = None
