@@ -5,12 +5,14 @@ import netifaces as ni
 import platform
 import time
 import schedule
+
 token = None
 ip = "10.10.10.1"
 rest_ip = "208.188.184.42"
 status = None
 
 
+# checks to see if the Jupyter container is running
 def is_running():
     global status
     p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' TX2-UofA-CUDA-GPU-Jupyter")
@@ -53,7 +55,7 @@ def post_data():
         global status
         global rest_ip
         print("trying to post data to rest endpoint")
-        api_endpoint = "http://"+rest_ip+":5000/submit"
+        api_endpoint = "http://" + rest_ip + ":5000/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
         data = {'ip': ip, 'jupyterToken': token, 'status': status}
 
@@ -93,12 +95,13 @@ def get_host_name_ip():
     # Driver code
 
 
+# calls the rest server to see if it needs to change the API endpoint
 def update_rest_ip():
     print("update rest IP")
     global rest_ip
-    r = requests.get("http://"+rest_ip+":5000/endpoint")
-    print("response from update rest IP: ", r.text)
-    rest_ip = r.text
+    r = requests.get("http://" + rest_ip + ":5000/endpoint")
+    print("response from update rest IP: ", r.json())
+    rest_ip = r.json().ip
     print("new REST_API IP: ", rest_ip)
 
 
