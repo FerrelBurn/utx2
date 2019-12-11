@@ -25,14 +25,17 @@ def is_running():
 
 # get the jupyter notbook token
 def get_token():
-    print("jupyter container is running method call: ", is_running())
+    print("jupyter container is running: ", is_running())
     if is_running():
         global token
         token = None
         # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
         p = subprocess.getoutput('docker exec -it TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
         raw_token = ''.join(p)
-
+        if raw_token == "the input device is not a TTY":
+            time.sleep(5)
+            print("waiting 5 seconds to see if the docker container is up yet")\
+            get_token()
         print("raw token: ", raw_token)
 
         start = 'token='
