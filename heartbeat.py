@@ -48,7 +48,7 @@ def post_data():
     try:
         global status
         print("trying to post data to rest endpoint")
-        api_endpoint = "http://208.188.184.42:5000/submit"
+        api_endpoint = "http://172.16.0.193:5000/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
         data = {'ip': ip, 'jupyterToken': token, 'status': status}
 
