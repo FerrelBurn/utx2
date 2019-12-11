@@ -30,7 +30,7 @@ def get_token():
         global token
         token = None
         # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
-        p = subprocess.getoutput('docker exec -it TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
+        p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
         raw_token = ''.join(p)
         print("raw token: ", raw_token)
         if raw_token == "the input device is not a TTY":
@@ -94,10 +94,12 @@ def get_host_name_ip():
 
 
 def update_rest_ip():
+    print("update rest IP")
     global rest_ip
     r = requests.get("http://"+rest_ip+":5000/endpoint")
-    print("response from update rest IP: ", r)
-    rest_ip = r
+    print("response from update rest IP: ", r.text)
+    rest_ip = r.text
+    print("new REST_API IP: ", rest_ip)
 
 
 #     post to rest endpoint on a regular basis
