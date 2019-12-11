@@ -7,6 +7,7 @@ import time
 import schedule
 token = None
 ip = "10.10.10.1"
+rest_ip = "208.188.184.42"
 status = None
 
 
@@ -47,8 +48,9 @@ def get_token():
 def post_data():
     try:
         global status
+        global rest_ip
         print("trying to post data to rest endpoint")
-        api_endpoint = "http://172.16.0.193:5000/submit"
+        api_endpoint = "http://"+rest_ip+":5000/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
         data = {'ip': ip, 'jupyterToken': token, 'status': status}
 
@@ -88,11 +90,19 @@ def get_host_name_ip():
     # Driver code
 
 
+def update_rest_ip():
+    global rest_ip
+    r = requests.get("http://"+rest_ip+":5000/endpoint")
+    print("response from update rest IP: ", r)
+    rest_ip = r
+
+
 #     post to rest endpoint on a regular basis
 def heart_beat():
     get_token()
     get_host_name_ip()
     post_data()
+    update_rest_ip()
 
 
 get_token()
