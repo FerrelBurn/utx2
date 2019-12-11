@@ -54,7 +54,7 @@ def post_data():
     try:
         global status
         global rest_ip
-        print("trying to post data to rest endpoint")
+
         api_endpoint = "http://" + rest_ip + ":5000/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
         data = {'ip': ip, 'jupyterToken': token, 'status': status}
@@ -79,16 +79,14 @@ def get_host_name_ip():
         os = platform.system()
         if os == "Windows":
             host_ip = socket.gethostbyname(host_name)
-            print(platform.system())
-            print("windows IP:", host_ip)
+
 
         else:
             host_ip = ni.ifaddresses('eth0')[ni.AF_INET][0]['addr']
-            print("Hostname :  ", host_name)
-            print("IP : ", host_ip)
+
 
         ip = host_ip
-        print("final ip: ", ip)
+        print("TX2 IP: ", ip)
     except:
         print("Unable to get Hostname and IP")
 
