@@ -96,7 +96,7 @@ def get_host_name_ip():
 def update_rest_ip():
     print("update rest IP")
     global rest_ip
-    r = requests.get("http://" + rest_ip + ":5000/endpoint")
+    r = requests.get("http://" + rest_ip + ":5000/endpoint", timeout=10)
     print("response from update rest IP: ", r.json())
     rest_ip = r.json().ip
     print("new REST_API IP: ", rest_ip)
