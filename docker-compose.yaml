@@ -11,20 +11,20 @@ services:
     container_name: portainer
     restart: always
   
-#  datascience_tx2:
-#    container_name: TX2-UofA-CUDA-GPU-Jupyter
-#    image: zapataai/datascience_tx2:latest
-#    ports:
-#      - 8888:8888 # Unsecured HTTP Web Port
-#    environment:
-#      - RACK_ENV=UofA
-#    restart: always
+  datascience_tx2:
+    container_name: TX2-UofA-CUDA-GPU-Jupyter
+    image: zapataai/datascience_tx2:latest
+    ports:
+      - 8888:8888 # Unsecured HTTP Web Port
+    environment:
+      - RACK_ENV=UofA
+    restart: always
       
-#  ouroboros:
-#    container_name: Update_Container
-#    volumes:
-#        - '/var/run/docker.sock:/var/run/docker.sock'
-#    image: pyouroboros/ouroboros
+  ouroboros:
+    container_name: Update_Container
+    volumes:
+        - '/var/run/docker.sock:/var/run/docker.sock'
+    image: pyouroboros/ouroboros
 
 volumes:
     portainer_data:
