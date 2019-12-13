@@ -4,8 +4,6 @@
     <list default="true" id="fb55c59d-c2f3-4c0d-95ba-8e34869a98d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup-containers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/setup-containers.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../violent/heartbeat.service" beforeDir="false" afterPath="$PROJECT_DIR$/../violent/heartbeat.service" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../violent/startup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../violent/startup.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
