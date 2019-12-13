@@ -1,5 +1,5 @@
 #!/bin/bash
-#!/usr/bin/env python3
+
 echo "******************************************************************"
 echo "getting ready to get some containers"
 echo "this script will pull the docker images needed and start them"
