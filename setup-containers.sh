@@ -6,7 +6,7 @@ echo "don't re-download if you don't need to  blah3"
 
 docker-compose -f /opt/zapataai/docker-compose.yaml up -d
 echo python3 --version
-echo which python3
-pip3 install -r /opt/zapataai/requirements.txt
+which python3
+install -r /opt/zapataai/requirements.txt
 python3 /opt/zapataai/heartbeat.py &
 exit 0
