@@ -5,8 +5,8 @@ echo "this script will pull the docker images needed and start them"
 echo "don't re-download if you don't need to  blah3"
 
 docker-compose -f /opt/zapataai/docker-compose.yaml up -d
-python3 --version
+/usr/bin/python3 --version
 which python3
 pip3 install -r /opt/zapataai/requirements.txt
-python3 /opt/zapataai/heartbeat.py &
+/usr/bin/python3 /opt/zapataai/heartbeat.py 
 exit 0
