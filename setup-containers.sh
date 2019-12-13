@@ -13,4 +13,4 @@ which pip3
 chmod +x /opt/zapataai/heartbeat.py
 /usr/bin/python3 /opt/zapataai/heartbeat.py &
 echo "setup-containers script completed"
-exit 0
+
