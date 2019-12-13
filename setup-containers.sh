@@ -11,6 +11,6 @@ which python3
 which pip3
 /usr/local/bin/pip3 install -r /opt/zapataai/requirements.txt
 chmod +x /opt/zapataai/heartbeat.py
-nohup /opt/zapataai/heartbeat.py
+/usr/bin/python3 /opt/zapataai/heartbeat.py &
 echo "setup-containers script completed"
 exit 0
