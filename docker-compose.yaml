@@ -14,6 +14,8 @@ services:
   datascience_tx2:
     container_name: TX2-UofA-CUDA-GPU-Jupyter
     image: zapataai/datascience_tx2:latest
+    volumes:
+      - "./notebooks/:/home/zapataai/work"
     ports:
       - 8888:8888 # Unsecured HTTP Web Port
     environment:
@@ -28,3 +30,5 @@ services:
 
 volumes:
     portainer_data:
+    notebooks:
+     
