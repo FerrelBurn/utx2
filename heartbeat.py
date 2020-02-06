@@ -8,7 +8,8 @@ import schedule
 
 token = None
 ip = "10.10.10.1"
-rest_ip = "10.139.57.107"
+# rest_ip = "10.139.57.107"
+rest_ip = "208.188.184.42"
 status = None
 heartbeat_frequency = 20
 
