@@ -4,7 +4,7 @@
     <list default="true" id="fb55c59d-c2f3-4c0d-95ba-8e34869a98d9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/heartbeat.py" beforeDir="false" afterPath="$PROJECT_DIR$/heartbeat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../violent/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../violent/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../violent/refresh.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../violent/refresh.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580962287075</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="changed default IP">
+      <created>1581012998061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581012998061</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -152,11 +159,12 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="734" y="179" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1050/0.-1080.2560.1050@0.0.2560.1050" timestamp="1576011693988" />
-    <state x="727" y="138" width="775" height="815" key="CommitChangelistDialog2" timestamp="1580962286428">
-      <screen x="41" y="27" width="1879" height="1052" />
+    <state x="935" y="1194" width="775" height="815" key="CommitChangelistDialog2" timestamp="1581012997932">
+      <screen x="0" y="1080" width="2560" height="1080" />
     </state>
     <state x="934" y="119" key="CommitChangelistDialog2/0.0.2560.1050/0.-1080.2560.1050@0.0.2560.1050" timestamp="1576011137925" />
     <state x="727" y="138" width="775" height="815" key="CommitChangelistDialog2/41.27.1879.1052@41.27.1879.1052" timestamp="1580962286428" />
+    <state x="935" y="1194" key="CommitChangelistDialog2/41.27.2519.1053/0.1080.2560.1080@0.1080.2560.1080" timestamp="1581012997932" />
     <state x="649" y="307" width="424" height="492" key="FileChooserDialogImpl" timestamp="1580961553608">
       <screen x="41" y="27" width="1879" height="1052" />
     </state>
@@ -182,10 +190,11 @@
       <screen x="0" y="0" width="2560" height="1050" />
     </state>
     <state x="781" y="167" key="SettingsEditor/0.0.2560.1050/0.-1080.2560.1050@0.0.2560.1050" timestamp="1576010290896" />
-    <state x="578" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1580962291489">
-      <screen x="41" y="27" width="1879" height="1052" />
+    <state x="732" y="1344" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1581012999515">
+      <screen x="0" y="1080" width="2560" height="1080" />
     </state>
     <state x="578" y="284" width="800" height="536" key="Vcs.Push.Dialog.v2/41.27.1879.1052@41.27.1879.1052" timestamp="1580962291489" />
+    <state x="732" y="1344" key="Vcs.Push.Dialog.v2/41.27.2519.1053/0.1080.2560.1080@0.1080.2560.1080" timestamp="1581012999515" />
     <state x="671" y="341" width="614" height="421" key="git4idea.merge.GitPullDialog" timestamp="1580962324922">
       <screen x="41" y="27" width="1879" height="1052" />
     </state>
