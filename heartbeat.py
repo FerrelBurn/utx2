@@ -8,7 +8,7 @@ import schedule
 
 token = None
 ip = "10.10.10.1"
-rest_ip = "208.188.184.42"
+rest_ip = "10.139.57.107"
 status = None
 heartbeat_frequency = 20
 
@@ -56,7 +56,7 @@ def post_data():
         global status
         global rest_ip
 
-        api_endpoint = "http://" + rest_ip + ":5000/submit"
+        api_endpoint = "http://" + rest_ip + ":8008/submit"
         print("trying to post data to rest endpoint:", api_endpoint)
         data = {'ip': ip, 'jupyterToken': token, 'status': status}
 
