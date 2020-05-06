@@ -34,7 +34,11 @@ def get_token():
         global token
         token = None
         # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
-        p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
+        # p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
+        command = '''
+        docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list|awk -F= '{ print $2 }'|awk '{ print $1 }'
+        '''
+        p = subprocess.getoutput(command)
         raw_token = ''.join(p)
         print("raw token: ", raw_token)
         if raw_token == "the input device is not a TTY":
@@ -42,11 +46,11 @@ def get_token():
             print("waiting 5 seconds to see if the docker container is up yet")
             get_token()
 
-        start = 'token='
-        end = ' ::'
-        token = ((raw_token.split(start))[1].split(end)[0])
+        #start = 'token='
+        #end = ' ::'
+        #token = ((raw_token.split(start))[1].split(end)[0])
 
-        print("Token: ", token)
+        print("Token: ", raw_token)
     else:
         token = "None"
 
