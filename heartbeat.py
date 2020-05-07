@@ -62,14 +62,14 @@ def post_data():
         global rest_ip
 
         api_endpoint = "http://" + rest_ip + ":8008/submit"
-        print("trying to post data to rest endpoint:", api_endpoint)
         data = {
             'ip': ip,
-            'jupyterToken': token,
+            'jupyterToken': raw_token,
             'status': status,
             'Created': 'Created PLACEHOLDER',
             'StartedAt': 'StartedAt PLACEHOLDER'
             }
+        print("trying to post data to rest endpoint: {}".format(data), api_endpoint)
 
         r = requests.post(url=api_endpoint, json=data, timeout=10)
 
