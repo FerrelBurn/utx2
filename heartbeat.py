@@ -50,6 +50,8 @@ def get_token():
         #end = ' ::'
         #token = ((raw_token.split(start))[1].split(end)[0])
 
+        token = raw_token
+
         print("Token: ", raw_token)
     else:
         token = "None"
@@ -64,7 +66,7 @@ def post_data():
         api_endpoint = "http://" + rest_ip + ":8008/submit"
         data = {
             'ip': ip,
-            'jupyterToken': raw_token,
+            'jupyterToken': token,
             'status': status,
             'Created': 'Created PLACEHOLDER',
             'StartedAt': 'StartedAt PLACEHOLDER'
