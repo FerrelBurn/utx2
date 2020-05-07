@@ -52,7 +52,7 @@ def get_token():
 
         token = raw_token
 
-        print("Token: ", raw_token)
+        print("Token: ", token)
     else:
         token = "None"
 
