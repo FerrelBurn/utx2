@@ -36,7 +36,7 @@ def get_token():
         # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
         # p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
         command = '''
-        docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list|awk -F= '{ print $2 }'|awk '{ print $1 }'
+        docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list|awk -F= '{ print $2 }'|awk '{ print $1 }' |tail -1
         '''
         p = subprocess.getoutput(command)
         raw_token = ''.join(p)
