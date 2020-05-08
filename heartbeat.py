@@ -74,7 +74,7 @@ def post_data():
         r = requests.post(url=api_endpoint, json=data, timeout=10)
 
         # extracting response text
-        print("response: ", r)
+        print("response: ", r.text)
 
         return "done"
     except requests.exceptions.RequestException as e:
