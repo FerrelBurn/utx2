@@ -67,14 +67,15 @@ def post_data():
         data = {
             "ip": ip,
             "jupyterToken": token,
-            "status": status
+            "status": status,
+            "startedAt": "2020-05-08T02:51:15.52592226Z"
             }
         print("trying to post data to rest endpoint: {}".format(data), api_endpoint)
 
         r = requests.post(url=api_endpoint, json=data, timeout=10)
 
         # extracting response text
-        print("response: ", r.text)
+        print("response: ", r.textdata)
 
         return "done"
     except requests.exceptions.RequestException as e:
