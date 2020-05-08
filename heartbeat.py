@@ -67,9 +67,7 @@ def post_data():
         data = {
             "ip": ip,
             "jupyterToken": token,
-            "status": status,
-            "Created": "Created PLACEHOLDER",
-            "StartedAt": "StartedAt PLACEHOLDER"
+            "status": status
             }
         print("trying to post data to rest endpoint: {}".format(data), api_endpoint)
 
