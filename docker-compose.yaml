@@ -2,8 +2,8 @@ version: "3.3"
 services:
   portainer:
     ports:
-      - '8000:8000'
-      - '9000:9000'
+      - '8000:8000' # This is for ...
+      - '9000:9000' # This is for ...
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
       - 'portainer_data:/data'
