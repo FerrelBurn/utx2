@@ -16,6 +16,11 @@ heartbeat_frequency = 20
 
 # checks to see if the Jupyter container is running
 def is_running():
+    """ Function: is_running()
+    Using subprocess library calls to docker to check if the TX2 container is running
+    Returns: string
+    """
+
     global status
     p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' TX2-UofA-CUDA-GPU-Jupyter")
 
@@ -29,6 +34,11 @@ def is_running():
 
 # get the jupyter notbook token
 def get_token():
+    """ Function: get_token()
+    The subprocess library calls TX2 container to obtain jupyter notebook URL as token
+    Returns: string
+    """
+
     print("jupyter container is running: ", is_running())
     if is_running():
         global token
@@ -59,6 +69,11 @@ def get_token():
 
 # post Jettson data to rest interface
 def post_data():
+    """ Function: post_data()
+    Submits ip, jupyterToken, startedAt and and Status of TX2 container to server listening at rest_ip:8888/submit
+    Returns: string
+    """
+
     try:
         global status
         global rest_ip
@@ -75,7 +90,7 @@ def post_data():
         r = requests.post(url=api_endpoint, json=data, timeout=10)
 
         # extracting response text
-        print("response: ", r.textdata)
+        print("response: ", r.text)
 
         return "done"
     except requests.exceptions.RequestException as e:
@@ -85,6 +100,10 @@ def post_data():
 # Function to display hostname and
 # IP address
 def get_host_name_ip():
+    """ Function: get_host_name()
+    Uses socket library to obtain hostname
+    Returns: string
+    """
     try:
         global ip
         host_ip = ""
@@ -107,6 +126,10 @@ def get_host_name_ip():
 
 # calls the rest server to see if it needs to change the API endpoint
 def update_rest_ip():
+    """ Function: update_rest_ip()
+    Hits rest_ip:8888/endpoint obtain updated IP for REST_API (rest_ip) and heartbeat_frequency
+    Returns: string
+    """
     print("update rest IP")
     global rest_ip
     global heartbeat_frequency
@@ -126,6 +149,10 @@ def update_rest_ip():
 
 #     post to rest endpoint on a regular basis
 def heart_beat():
+    """ Function: heart_beat()
+    This function calls get_token, get_host_name_ip, post_data, and update_rest_ip in order
+    Returns: none
+    """
     get_token()
     get_host_name_ip()
     post_data()
