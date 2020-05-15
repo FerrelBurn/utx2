@@ -133,7 +133,7 @@ def update_rest_ip():
     print("update rest IP")
     global rest_ip
     global heartbeat_frequency
-    api_url = "http://" + rest_ip + ":8008/endpoint"
+    # api_url = "http://" + rest_ip + ":8008/endpoint" #this variable is not used
     try:
         r = requests.get("http://" + rest_ip + ":8008/endpoint", timeout=10)
         print("response from update rest IP: ", r.json())
