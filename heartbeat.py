@@ -7,11 +7,11 @@ import time
 import schedule
 
 token = None
-ip = "10.10.10.1"
-rest_ip = "10.139.57.107"
-# rest_ip = "208.188.184.42"
+ip = "10.10.10.1" # Set initial IP. This approach may need to be re-examined #TODO
+rest_ip = "10.139.57.107" # Set initial REST IP for server #TODO
+# rest_ip = "208.188.184.42" # This is an old IP, and should likely be removed #TODO
 status = None
-heartbeat_frequency = 20
+heartbeat_frequency = 20 # Set default heartbeat_frequency #TODO
 
 
 # checks to see if the Jupyter container is running
@@ -40,27 +40,30 @@ def get_token():
     """
 
     print("jupyter container is running: ", is_running())
+    
     if is_running():
         global token
         token = None
-        # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token')
-        # p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list')
+
+        # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token') #TODO
+        # p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list') #TODO
         command = '''
         docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list|awk -F= '{ print $2 }'|awk '{ print $1 }' |tail -1
         '''
         p = subprocess.getoutput(command)
-        raw_token = ''.join(p)
-        print("raw token: ", raw_token)
-        if raw_token == "the input device is not a TTY":
+        print("Process output: {}".format(str(p)))
+        token = ''.join(p)
+        
+        print("Token: ", token)
+
+        if token == "the input device is not a TTY":
             time.sleep(5)
             print("waiting 5 seconds to see if the docker container is up yet")
             get_token()
 
-        #start = 'token='
-        #end = ' ::'
-        #token = ((raw_token.split(start))[1].split(end)[0])
-
-        token = raw_token
+        #start = 'token=' #TODO
+        #end = ' ::' #TODO
+        #token = ((raw_token.split(start))[1].split(end)[0]) #TODO
 
         print("Token: ", token)
     else:
