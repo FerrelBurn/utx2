@@ -6,13 +6,13 @@ import platform
 import time
 import schedule
 
+# Global Varable declarations
 token = None
 ip = "10.10.10.1" # Set initial IP. This approach may need to be re-examined #TODO
 rest_ip = "10.139.57.107" # Set initial REST IP for server #TODO
 # rest_ip = "208.188.184.42" # This is an old IP, and should likely be removed #TODO
 status = None
 heartbeat_frequency = 20 # Set default heartbeat_frequency #TODO
-
 
 # checks to see if the Jupyter container is running
 def is_running():
@@ -45,14 +45,10 @@ def get_token():
         global token
         token = None
 
-        # p = subprocess.getoutput('docker logs TX2-UofA-CUDA-GPU-Jupyter 2>&1 | grep token') #TODO
-        # p = subprocess.getoutput('docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list') #TODO
         command = '''
         docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list|awk -F= '{ print $2 }'|awk '{ print $1 }' |tail -1
         '''
-        p = subprocess.getoutput(command)
-        print("Process output: {}".format(str(p)))
-        token = ''.join(p)
+        token = subprocess.getoutput(command)
         
         print("Token: ", token)
 
@@ -61,14 +57,9 @@ def get_token():
             print("waiting 5 seconds to see if the docker container is up yet")
             get_token()
 
-        #start = 'token=' #TODO
-        #end = ' ::' #TODO
-        #token = ((raw_token.split(start))[1].split(end)[0]) #TODO
-
         print("Token: ", token)
     else:
         token = "None"
-
 
 # post Jettson data to rest interface
 def post_data():
@@ -76,7 +67,6 @@ def post_data():
     Submits ip, jupyterToken, startedAt and and Status of TX2 container to server listening at rest_ip:8888/submit
     Returns: string
     """
-
     try:
         global status
         global rest_ip
