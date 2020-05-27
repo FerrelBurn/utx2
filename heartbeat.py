@@ -8,7 +8,7 @@ import schedule
 
 token = None
 ip = "10.10.10.1" # Set initial IP. This approach may need to be re-examined #TODO
-rest_ip = "10.92.1.33" # Set initial REST IP for server #TODO
+rest_ip = "10.92.1.21" # Set initial REST IP for server #TODO
 # rest_ip = "10.139.57.107" # This is an old IP, and should likely be removed #TODO
 status = None
 heartbeat_frequency = 20 # Set default heartbeat_frequency #TODO
