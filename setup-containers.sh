@@ -12,10 +12,8 @@ chmod 775 notebooks
 # Defines and runs multi-container applications.
 docker-compose -f /opt/zapataai/docker-compose.yaml up -d
 
-# Which Python 3 TO DO CG
+# Which Python 3 TODO CG
 /usr/bin/python3 --version
-
-# which pip3 TO DO CG
 /usr/bin/pip3 install -r /opt/zapataai/requirements.txt
 
 # makes file executable
