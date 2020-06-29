@@ -22,7 +22,7 @@ def is_running():
     """
 
     global status
-    p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' TX2-UofA-CUDA-GPU-Jupyter")
+    p = subprocess.getoutput("docker inspect -f '{{.State.Running}}' TX2-UofA-CUDA-GPU-Jupyter 2> /dev/null")
 
     if p == 'true':
         status = "On"
@@ -43,10 +43,10 @@ def get_token():
     
     if is_running():
         global token
-        token = None
+        token = "None"
 
         command = '''
-        docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list|awk -F= '{ print $2 }'|awk '{ print $1 }' |tail -1
+        docker exec -i TX2-UofA-CUDA-GPU-Jupyter jupyter notebook list 2> /dev/null|awk -F= '{ print $2 }'|awk '{ print $1 }' |tail -1
         '''
         token = subprocess.getoutput(command)
         
